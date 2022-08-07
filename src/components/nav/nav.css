@@ -1,0 +1,219 @@
+.nav-wrapper{
+    background-color: #DFEDF1;
+    overflow: hidden;
+    padding-top: 66px;
+    z-index: 10;
+}
+.nav{
+    height: 100%;
+}
+.nav__user{
+    height: 16%;
+}
+.nav__user__img{
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.nav__user__name{
+    margin-top: 23px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #158FA4; 
+}
+
+.nav__action{
+    height: 79%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav__action__link{
+    min-height: 48px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #158FA4;
+    text-decoration: none;
+    padding-left: 62px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.logout{
+    width: 100%;
+    border-top: 1px solid #fff;
+}
+.nav__action__link:hover{
+    transform: translateX(5px);
+    transition: transform 0.2s;
+}
+.nav__action__link.active {
+    background-color: #8DB9C9;
+    color: #FFFFFF;
+    transition: all 2s;
+}
+.nav__action__link.active:hover {
+    transform: none;
+}
+.dashboard::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/dashbord.png);
+    background-repeat: no-repeat;
+}
+.myPatients::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/mypattients.png);
+    background-repeat: no-repeat;
+}
+.medication::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/medication.png);
+    background-repeat: no-repeat;
+}
+.payments::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/pay.png);
+    background-repeat: no-repeat;
+}
+.otherFeatures::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/other.png);
+    background-repeat: no-repeat;
+}
+.publish::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/publish.png);
+    background-repeat: no-repeat;
+}
+.history::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/history.png);
+    background-repeat: no-repeat;
+}
+.settings::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/settings.png);
+    background-repeat: no-repeat;
+}
+.logout::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/logaut.png);
+    background-repeat: no-repeat;
+}
+.dashboard.active::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/dashboardActive.png);
+    background-repeat: no-repeat;
+}
+.myPatients.active::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/mypatientsActive.png);
+    background-repeat: no-repeat;
+}
+.medication.active::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/medicationActive.png);
+    background-repeat: no-repeat;
+}
+.payments.active::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/payActive.png);
+    background-repeat: no-repeat;
+}
+.otherFeatures.active::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/otherActive.png);
+    background-repeat: no-repeat;
+}
+.publish.active::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/publishActive.png);
+    background-repeat: no-repeat;
+}
+.history.active::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/historyActive.png);
+    background-repeat: no-repeat;
+}
+.settings.active::before{
+    content: '';
+    position: absolute;
+    width: 16px;
+    min-height: 16px;
+    left: 35px;
+    background-image: url(../../img/settingsActive.png);
+    background-repeat: no-repeat;
+}
+

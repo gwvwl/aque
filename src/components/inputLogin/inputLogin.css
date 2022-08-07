@@ -1,0 +1,80 @@
+.wrapper__login {
+    display: flex;
+    justify-content: space-around;
+    background-image: url(../../img/Login.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    align-items: center;
+}
+
+.form__login{
+    width: 479px;
+    min-height: 434px;
+    background: rgba(141, 185, 201, 0.27);
+    box-shadow: 0px 12px 26px rgba(16, 30, 115, 0.06);
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 75px 59px 10px 56px;
+}
+.logo{
+    margin-bottom: 45px;
+}
+
+.login__form__input, .register__input{
+    width: 364px;
+    min-height: 53px;
+    background: #F6FAFA;
+    border: 1px solid #D0CFCF;
+    box-shadow: inset -2px -2px 5px #FFFFFF, inset 2px 2px 4px rgba(21, 143, 164, 0.2);
+    border-radius: 5px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-bottom: 23px;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+
+
+
+.wrapper__login__title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 59px;
+}
+
+.login__checkbox__promo{
+    display: inline;
+}
+
+.button{
+    width: 362px;
+    min-height: 60px;
+    background: #8DB9C9;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: 24px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    color: #FFFFFF;
+}
+
+.wrapper__login__title label, .wrapper__login__title button, .login__create {
+    color: #158FA4;
+    user-select: none;    
+}
+
+.login__create{
+    text-align: center;
+    margin-top: 35px;
+}
+
+.login__outh{
+    color:red;
+    text-align: center;
+    margin-bottom: 10px;
+}

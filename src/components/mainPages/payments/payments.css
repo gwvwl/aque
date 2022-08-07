@@ -1,0 +1,16 @@
+
+.payments__wrapper{
+    background: #FFFFFF;
+    box-shadow: 0px 12px 26px rgb(16 30 115 / 6%);
+    border-radius: 8px;
+}
+
+.payments__title{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    background: #8DB9C9;
+}
+

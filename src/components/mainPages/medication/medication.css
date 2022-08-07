@@ -1,0 +1,98 @@
+.medication__wrapper{
+    background: #FFFFFF;
+    box-shadow: 0px 12px 26px rgb(16 30 115 / 6%);
+    border-radius: 8px;
+}
+.medication__wrapper__left{
+    background: #FFFFFF;
+    box-shadow: 0px 12px 26px rgba(16, 30, 115, 0.06);
+    border-radius: 8px;
+    height: 100%;
+}
+
+/* main         */
+
+.medication__title{
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+    color:#FFFFFF;
+    background: #8DB9C9;
+}
+.medication__title div {
+    display: flex;
+}
+.medication__title__left img{
+    width: 15px;
+    height: 15px;
+}
+.medication__title__left span{
+    margin-left: 20px;
+}
+
+/* stock  */
+.medication__stock{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+
+.medication__stock span {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.1px;
+    color: #A0A4A8;
+}
+.medication__stock__butons button{
+    padding: 10px;
+    background: #8DB9C9;
+    color: #FFFFFF;
+}
+
+/* table   */
+
+.medication__table{
+    display: flex;
+    justify-content: space-between;
+    border-top: 3px solid #F5F7FB;
+    border-bottom: 3px solid #F5F7FB;
+    height: 30%;
+}
+
+.medication__table div{
+    width: 14%;
+}
+.tabble__remaining{
+    width: 16%;
+}
+
+.medication__table div:not(:last-of-type) {
+    border-right: 3px solid #F5F7FB;
+}
+.medication__table div span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid #F5F7FB;
+    height: 50px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.1px;
+    color: #A0A4A8;
+}
+
+/* notes  */
+
+.medication__notes span {
+    padding: 20px 30px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #A0A4A8;
+}

@@ -1,0 +1,17 @@
+.main-wrapper{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 18% 82%;
+    z-index: 3;
+}
+.mainPage__wrapper{
+    display: grid;
+    grid-template-rows: minmax(120px, 15%) minmax(630px, 79%);
+    grid-template-columns: minmax(260px, 22%) minmax(580px, 71%);
+    padding: 56px 35px 24px 3%;
+    background: #F6FAFA;
+    row-gap: 35px;
+    column-gap: 4%;
+    z-index: 3;
+}
+
