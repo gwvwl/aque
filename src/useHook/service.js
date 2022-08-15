@@ -31,8 +31,8 @@ const useService = () => {
                             token: result.data.token,
                             name: result.data.user.name,
                             position: result.data.doctor.position,
-                        })),
-                        navigate(`/menu/dashboard`))} 
+                        }))
+                        )} 
             })
         return res;
     }
@@ -70,8 +70,7 @@ const useService = () => {
             .then(result => {
                 if(result) {
                     return(
-                        dispatch(logaut()),
-                        navigate('/')
+                        dispatch(logaut())
                     )
                 } 
             })

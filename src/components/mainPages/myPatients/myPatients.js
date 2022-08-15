@@ -1,6 +1,5 @@
 import { useEffect} from 'react';
 
-
 import {Header} from '../../header/header';
 import PatieentsForm from './components/patietntsForm';
 import PatientsRight from './components/mainPytients';
