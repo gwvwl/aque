@@ -8,9 +8,6 @@ const addSlice = createSlice({
         setPatients(state) {
             state.patients = !state.patients;
         },
-        // setPatientsFalse(state) {
-        //     state.patients = true;
-        // },
         setMedication(state, action) {
             state.medication = !state.medication;
         },
@@ -19,12 +16,6 @@ const addSlice = createSlice({
         },
         setFeatures(state, action) {
             state.features = !state.features;
-        },
-        setAdd(state, action) {
-            state.features = false;
-            state.patients = false;
-            state.payments = false;
-            state.medication = false;
         },
     },
 });

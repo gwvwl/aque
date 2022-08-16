@@ -5,31 +5,14 @@ import {useDispatch} from 'react-redux';
 import { setPatients} from '../../../store/slices/activePatientsSlice';
 import '../myPatients.css';
 import useService from '../../../../useHook/service';
-import { useState } from 'react';
 
-import addImg from '../../../../img/addImgPatient.png';
 
 const PatieentsForm = ({updateList}) => {
     const dispatch = useDispatch();
-    const {RegistetPatient} = useService();
-
-
-
-    const [errorSubmit, setErrorSubmit] = useState(false);
-
-    const Jopa = () => {
-        return(
-            <div>hui</div>
-        )
-    };
-
-    const error = errorSubmit && <Jopa/>;
+    const {RegistetPatient, ErrorMessageRegister, error} = useService();
 
     const Submit = async (e) =>{
-        if(e.errors){
-            setErrorSubmit(true);
-        }else {
-            setErrorSubmit(false);
+        if(!e.errors){
             updateList();
         }
     };
@@ -65,7 +48,7 @@ const PatieentsForm = ({updateList}) => {
              onSubmit = {body => RegistetPatient(body).then(res => Submit(res))}
             >
             <Form className='patiens__wrapper__form'>
-                {error}
+                {error && <ErrorMessageRegister/>}
                 <span className='addPatients__title'>Add Patient</span>
                 <div className='addPatients__form'>
                     <div className="addPatients__photo">

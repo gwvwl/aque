@@ -17,14 +17,7 @@ const userSlice = createSlice({
             state.doctor_id = action.payload.doctor_id;
             state.position = action.payload.position;
         },
-        logaut(state) {
-            // state.email = null;
-            // state.token = null;
-            // state.id = null;
-            // state.name = null;
-            // state.doctor_id = null;
-            // state.position = null;
-        },
+        logaut(state) {},
     },
 });
 
