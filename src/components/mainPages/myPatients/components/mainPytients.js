@@ -1,7 +1,7 @@
 import { useState} from 'react';
 import {useSelector} from 'react-redux';
 import useService from '../../../../useHook/service';
-import Skeleton from '../../../../skeleton/skeleton';
+import Skeleton from '../../../skeleton/skeleton';
 import dropHeader from '../../../../img/dropUnHeader.png';
 
 import '../myPatients.css';
@@ -126,9 +126,9 @@ const PatientsRight = () => {
                     </div>
 
                     {
-                        patientVisit.map(item => {
+                        patientVisit.map((item, i) => {
                             return (
-                                <div className="patiens__card__visits__main">
+                                <div className="patiens__card__visits__main" key={i}>
                                     <span>01/12/2021</span>
                                     <span>Duis autem vel eum</span>
                                     <span>Duis autem vel eum</span>
@@ -153,8 +153,8 @@ const PatientsRight = () => {
                         <span>Reason</span>
                     </div>
                     {
-                        patientLabs.map(item => (
-                            <div className="patiens__card__visits__main">
+                        patientLabs.map((item, i) => (
+                            <div className="patiens__card__visits__main" key={i}>
                                 <span>{item.lab_test}</span>
                                 <span>{item.lab_date}</span>
                                 <span>{item.lab_reason}</span>

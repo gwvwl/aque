@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import {Route, Routes, useNavigate} from 'react-router-dom';
 import {privateRoutes, publicRoutes} from "./routes";
 import {Menu_DASHBOARD_ROUTE, LOGIN_ROUTE} from "./constRout";
-import { useAuth } from '../../useHook/use-auth';
+import { useAuth } from '../useHook/useAuth';
 
 
 const AppRouter = () => {

@@ -4,11 +4,11 @@ import {Header} from '../../header/header';
 import PatieentsForm from './components/patietntsForm';
 import PatientsRight from './components/mainPytients';
 import PatietsList from './components/patients-list';
-import Skeleton from '../../../skeleton/skeleton';
+import Skeleton from '../../skeleton/skeleton';
 import useService from '../../../useHook/service';
 
 import {useDispatch, useSelector} from 'react-redux';
-import { setActivePatients, setPatients} from '../../store/slices/activePatientsSlice';
+import { setActivePatients, setPatients} from '../../../store/slices/activePatientsSlice';
 
 import './myPatients.css';
 

@@ -7,7 +7,7 @@ import Payments from './payments/payments';
 import OtherFeatures from './otherFeatures/otherFeatures';
 import Publish from './publish/publish';
 import History from './history/history';
-import Settings from './settings/settings';
+import Settings from './settings/Settings';
 
 import {Route, Routes} from 'react-router-dom';
 

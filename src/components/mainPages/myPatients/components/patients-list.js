@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect} from 'react';
 
-import { setActivePatients } from '../../../store/slices/activePatientsSlice';
+import { setActivePatients } from '../../../../store/slices/activePatientsSlice';
 import {useDispatch, useSelector} from 'react-redux';
 
 import drop from '../../../../img/dropUnDown.svg';

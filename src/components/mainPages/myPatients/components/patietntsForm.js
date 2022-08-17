@@ -2,7 +2,7 @@
 import { Formik, Field, Form, ErrorMessage} from 'formik';
 // import * as Yup from 'yup';
 import {useDispatch} from 'react-redux';
-import { setPatients} from '../../../store/slices/activePatientsSlice';
+import { setPatients} from '../../../../store/slices/activePatientsSlice';
 import '../myPatients.css';
 import useService from '../../../../useHook/service';
 

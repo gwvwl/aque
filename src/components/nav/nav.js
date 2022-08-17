@@ -5,7 +5,7 @@ import './nav.css';
 import useService from '../../useHook/service.js';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
-import { setAdd} from '../store/slices/addSlice';
+import { setAdd} from '../../store/slices/addSlice';
 import {useNavigate} from 'react-router-dom';
 
 const Nav = () => {
@@ -42,7 +42,7 @@ const Nav = () => {
                         </div>
                         <div>
                                 <button  
-                                        onClick={() => {formLogout() ; navigate('/')}}
+                                        onClick={() => {formLogout()}}
                                         className='nav__action__link logout'>Logout</button>
                         </div>
                        

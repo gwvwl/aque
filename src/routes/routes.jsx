@@ -1,6 +1,6 @@
-import InputLogin from "../inputLogin/inputLogin"
-import Register from "../register/register"
-import MainPage from "../mainPages/mainPage"
+import InputLogin from '../components/inputLogin/InputLogin';
+import Register from "../components/register/register"
+import MainPage from "../components/mainPages/mainPage"
 
 import {LOGIN_ROUTE, REGISTER_ROUTE, MENU_ROUTE} from './constRout';
 

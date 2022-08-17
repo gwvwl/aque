@@ -6,14 +6,11 @@ import './dashboard.css';
 
 const Dashboard = () => {
 
-    const [tab, setTab] = useState(true);
-    function ToggleTab (e){
-        setTab(tab => e);
-    }
+    const [tab, setTab] = useState(false);
+   
     const {headerDashbord} = Header();
 
     const header = headerDashbord();
-    const tabContent = tab ? <TabsActionLeft/> : <TabsActionRight/>;
     return(
         <div className="mainPage__wrapper">
             {header}
@@ -22,7 +19,7 @@ const Dashboard = () => {
                     <div className="mainPage__right__tabs__left">
                         <span className='title__tabs__card title__tabs__card__before'>Today’s expecting patients</span>
 
-                        <div className="tabs__card__wrapper" onClick={e => ToggleTab(true)} >
+                        <div className="tabs__card__wrapper" onClick={e => setTab(tab => !tab)} >
                             <div className="tabs__card" >
                                 <img src="#" alt="" className='tabs__card__userPhoto'/>
                                 <span>ID</span>
@@ -36,7 +33,7 @@ const Dashboard = () => {
                             <span>4</span>
                         </div>
 
-                        <div className="tabs__card__wrapper" onClick={e => ToggleTab(false)} >
+                        <div className="tabs__card__wrapper" onClick={e => setTab(false)} >
                             <div className="tabs__card" >
                                 <img src="#" alt=""/>
                                 <span className='tabs__card__notific'>Lorem ipsum dolor sit amet</span>
@@ -45,7 +42,7 @@ const Dashboard = () => {
                     </div>  
                 </div>
                 <div className="tabs__action">
-                    {tabContent}
+                    {tab ? <TabsActionLeft/> : <TabsActionRight/>}
                 </div>
             </div>
         </div>

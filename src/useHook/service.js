@@ -1,16 +1,18 @@
 import {useNavigate} from 'react-router-dom';
-import { setUser } from '../components/store/slices/userSlice';
+import { setUser } from '../store/slices/userSlice';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
-import {logaut} from '../components/store/slices/userSlice';
+import {logaut} from '../store/slices/userSlice';
+import {ErrorMessageInput, ErrorMessageRegister} from './errorMessage';
 
-
-import { useHttp } from './http.hook';
+import { useHttp } from './useHttp';
 
 const useService = () => {
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const {token, doctor_id} = useSelector(state => state.user);
+    const token = useSelector(state => state.user.token);
+    const doctor_id = useSelector(state => state.user.doctor_id);
     const {loading, request, error, clearError} = useHttp();
     // api 
     const __api = 'http://127.0.0.1:8000/';
@@ -36,11 +38,6 @@ const useService = () => {
             })
         return res;
     }
-    const ErrorMessageInput = () => {
-        return(
-            <div className='login__outh'>he email or password is incorrect.</div>
-        )
-    }
 // Login ================================================ Login 
 
 // Register ================================================ Register 
@@ -57,11 +54,7 @@ const useService = () => {
             })
         return res;
     }
-    const ErrorMessageRegister = () => {
-        return(
-            <div className='login__outh'>he email is incorrect.</div>
-        )
-    }
+   
 // Register ================================================ Register 
 
 // Logaut ================================================ Logaut

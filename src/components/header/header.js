@@ -5,7 +5,7 @@ import './header.css';
 
 import {useDispatch, useSelector} from 'react-redux';
 
-import { setPatients, setMedication, setPayments, setFeatures } from '../store/slices/addSlice';
+import { setPatients, setMedication, setPayments, setFeatures } from '../../store/slices/addSlice';
 
 export const Header = () => {
 
