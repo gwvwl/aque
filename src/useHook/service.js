@@ -26,16 +26,10 @@ const useService = () => {
             .then(result => {
                 if(result.data) { 
                     return(
-                        dispatch(setUser({
-                            email: result.data.user.email,
-                            id: result.data.doctor.id,
-                            doctor_id: result.data.doctor.id,
-                            token: result.data.token,
-                            name: result.data.user.name,
-                            position: result.data.doctor.position,
-                        }))
-                        )} 
+                        dispatch(setUser(result.data))
+                    )} 
             })
+           
         return res;
     }
 // Login ================================================ Login 
@@ -95,7 +89,8 @@ const useService = () => {
         return res;
     }
 
-    return {formLogin, 
+    return {
+            formLogin, 
             formRegister, 
             formLogout, 
             getOnePatient, 

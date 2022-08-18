@@ -10,12 +10,12 @@ const userSlice = createSlice({
     },
     reducers: {
         setUser(state, action) {
-            state.email = action.payload.email;
+            state.email = action.payload.user.email;
             state.token = action.payload.token;
-            state.id = action.payload.id;
-            state.name = action.payload.name;
-            state.doctor_id = action.payload.doctor_id;
-            state.position = action.payload.position;
+            state.id = action.payload.doctor.user_id;
+            state.name = action.payload.user.name;
+            state.doctor_id = action.payload.doctor.id;
+            state.position = action.payload.doctor.position;
         },
         logaut(state) {},
     },

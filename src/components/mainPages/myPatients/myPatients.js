@@ -5,55 +5,35 @@ import PatieentsForm from './components/patietntsForm';
 import PatientsRight from './components/mainPytients';
 import PatietsList from './components/patients-list';
 import Skeleton from '../../skeleton/skeleton';
-import useService from '../../../useHook/service';
 
 import {useDispatch, useSelector} from 'react-redux';
-import { setActivePatients, setPatients} from '../../../store/slices/activePatientsSlice';
+import {getPatientsList} from '../../../store/slices/activePatientsSlice';
 
 import './myPatients.css';
 
 const MyPatients = () => {
 
     const {headerPatients} = Header();
-    const addPat = useSelector((state) => state.add.patients);
     const dispatch = useDispatch();
-    const doctorId = useSelector(state => state.user.doctor_id);
-    const {getPatients, getOnePatient, loading} = useService();
+    const addPat = useSelector((state) => state.add.patients);
+    const {status} = useSelector(state => state.activePatients);
     const patients = useSelector(state => state.activePatients.patients);
-
 
     useEffect( () => {
         if(!patients.length){
-            getPatients(doctorId).then(result => {
-                dispatch(setPatients(result.data));
-
-                getOnePatient(result.data[0].id).then(res => {
-                    dispatch(setActivePatients(res.data));
-                });
-            });
+            dispatch(getPatientsList());
+            
         }
     },[]);
-
-    const updateList = () => {
-        getPatients(doctorId).then(result => {
-            dispatch(setPatients(result.data));
-
-            getOnePatient(result.data[result.data.length - 1].id).then(res => {
-                dispatch(setActivePatients(res.data));
-            });
-        });
-    }
     
-    
-
     const header = headerPatients();
     return(
         <div className={`mainPage__wrapper  `} >
             {header}
 
-            {loading ? <Skeleton/> : <PatietsList /> }
+            {status ? <Skeleton/> : <PatietsList/>}
 
-            {addPat ? <PatieentsForm updateList = {updateList}/> : <PatientsRight/>}
+            {addPat ? <PatieentsForm /> : <PatientsRight/>}
         </div>
     )
 }

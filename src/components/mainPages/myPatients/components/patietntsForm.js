@@ -2,18 +2,18 @@
 import { Formik, Field, Form, ErrorMessage} from 'formik';
 // import * as Yup from 'yup';
 import {useDispatch} from 'react-redux';
-import { setPatients} from '../../../../store/slices/activePatientsSlice';
+import { setPatients, updateList} from '../../../../store/slices/activePatientsSlice';
 import '../myPatients.css';
 import useService from '../../../../useHook/service';
 
 
-const PatieentsForm = ({updateList}) => {
+const PatieentsForm = () => {
     const dispatch = useDispatch();
     const {RegistetPatient, ErrorMessageRegister, error} = useService();
 
     const Submit = async (e) =>{
         if(!e.errors){
-            updateList();
+            dispatch(updateList());
         }
     };
 
@@ -45,7 +45,7 @@ const PatieentsForm = ({updateList}) => {
             // validationSchema = {Yup.object({
 
             //     })}
-             onSubmit = {body => RegistetPatient(body).then(res => Submit(res))}
+            onSubmit = {(body, actions) => { RegistetPatient(body).then(res => Submit(res)); actions.resetForm() }}
             >
             <Form className='patiens__wrapper__form'>
                 {error && <ErrorMessageRegister/>}
