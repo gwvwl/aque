@@ -1,22 +1,15 @@
 
 import { Formik, Field, Form, ErrorMessage} from 'formik';
 // import * as Yup from 'yup';
-import {useDispatch} from 'react-redux';
-import { setPatients, updateList} from '../../../../store/slices/activePatientsSlice';
+import {useDispatch, useSelector} from 'react-redux';
+import { setPatients, RegAndUpdateList} from '../../../../store/slices/activePatientsSlice';
 import '../myPatients.css';
-import useService from '../../../../useHook/service';
+
 
 
 const PatieentsForm = () => {
     const dispatch = useDispatch();
-    const {RegistetPatient, ErrorMessageRegister, error} = useService();
-
-    const Submit = async (e) =>{
-        if(!e.errors){
-            dispatch(updateList());
-        }
-    };
-
+    const {submit, error} = useSelector(state => state.activePatients);
     
     return(
         <Formik
@@ -45,10 +38,10 @@ const PatieentsForm = () => {
             // validationSchema = {Yup.object({
 
             //     })}
-            onSubmit = {(body, actions) => { RegistetPatient(body).then(res => Submit(res)); actions.resetForm() }}
+            onSubmit = {(body, actions) => { dispatch(RegAndUpdateList(body)) ; actions.resetForm() }}
             >
             <Form className='patiens__wrapper__form'>
-                {error && <ErrorMessageRegister/>}
+                {submit && error}
                 <span className='addPatients__title'>Add Patient</span>
                 <div className='addPatients__form'>
                     <div className="addPatients__photo">

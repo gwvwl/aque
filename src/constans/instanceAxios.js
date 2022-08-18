@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { baseURL, storageToken } from './constans';
 
-export default  axios.create({
+export default axios.create({
     baseURL: baseURL,
     headers:{ 
         "Accept":  "application/json", 

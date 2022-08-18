@@ -1,16 +1,17 @@
 
 import { Formik, Field, Form, ErrorMessage} from 'formik';
-import useService  from '../../useHook/service';
 import {Link} from 'react-router-dom';
 import * as Yup from 'yup';
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { signIn } from '../../store/slices/userSlice';
+import { ErrorMessageInput } from '../../useHook/errorMessage';
 import logo from '../../img/Logo.png';
 import unbenannt from '../../img/Unbenannt.png';
 import './inputLogin.css';
 
 const InputLogin = () => {
-    const {formLogin, ErrorMessageInput, error} = useService();
+    const status = useSelector(state => state.user.status);
+    const dispatch = useDispatch();
 
     return (
         <Formik
@@ -28,7 +29,7 @@ const InputLogin = () => {
                         .required('Обязательное поле!'),
 
                 })}
-            onSubmit = {body => formLogin(body)}
+            onSubmit = {body => dispatch(signIn(body))}
            >
             <div className="wrapper wrapper__login">
                 <div className="login__wrapper-left">
@@ -37,7 +38,7 @@ const InputLogin = () => {
                     </div>
                     <div className="form__login">
                         <Form >
-                            {error && <ErrorMessageInput/>}
+                            {status && <ErrorMessageInput/>}
                             <ErrorMessage name='email' className="error"  component='div' />
                             <Field 
                                 className="login__form__input" 

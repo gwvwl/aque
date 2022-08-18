@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect} from 'react';
-
-import { setActivePatients } from '../../../../store/slices/activePatientsSlice';
+import { getActivePatient } from '../../../../store/slices/activePatientsSlice';
 import {useDispatch, useSelector} from 'react-redux';
+import { baseURL } from '../../../../constans/constans';
 
 import drop from '../../../../img/dropUnDown.svg';
-import useService from '../../../../useHook/service';
+
 
 import '../myPatients.css';
 
@@ -12,7 +12,6 @@ import '../myPatients.css';
 const PatietsList = () => {
     const [dropOn, setDropOn] = useState(false);
     const dispatch = useDispatch();
-    const {getOnePatient, __api} = useService();
     const focusAddPatient = useRef([]);
     const activePatients = useSelector(state => state.activePatients.activePatient.patient);
     const patients = useSelector(state => state.activePatients.patients);
@@ -30,11 +29,7 @@ const PatietsList = () => {
     });
     
     const togleStateClass = (id) => {
-        getOnePatient(id).then( res => {
-            if(res.errors !== true){
-                dispatch(setActivePatients(res.data));
-            };
-        });
+        dispatch(getActivePatient(id)); 
     };
 
     const OnUnDown = dropOn ? <UnDown/> : null;
@@ -63,7 +58,7 @@ const PatietsList = () => {
                             ref={el => focusAddPatient.current[patients.id] = el}
                             onClick={() => togleStateClass(patients.id)}
                             >
-                        <img src={`${__api}${patients.patient_photo}`} alt = 'patient' />
+                        <img src={`${baseURL}${patients.patient_photo}`} alt = 'patient' />
                         <span className='patients__card_id'>ID {patients.id}</span>
                         <span>{patients.patient_name}</span>
                     </div>

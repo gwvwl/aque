@@ -1,16 +1,16 @@
 
 import { Formik, Field, Form, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-
-import useService from '../../useHook/service';
+import { signUp } from '../../store/slices/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import unbenannt from '../../img/Unbenannt.png';
 import logo from '../../img/Logo.png';
-
+import { ErrorMessageRegister } from '../../useHook/errorMessage';
 import './register.css';
 
 const Register = () => {
-    const {formRegister, ErrorMessageRegister, error} = useService();
-
+    const status = useSelector(state => state.user.register);
+    const dispatch = useDispatch();
 
     return(
         <Formik
@@ -45,7 +45,7 @@ const Register = () => {
                       
 
                 })}
-             onSubmit = {body => formRegister(body)}
+             onSubmit = {body => dispatch(signUp(body))}
             >
             
             <div className="wrapper__create">
@@ -54,7 +54,7 @@ const Register = () => {
                       <img src={logo} alt="#"/>
                     </div>
                     <span className='create_promo'>Create account</span>
-                    {error && <ErrorMessageRegister/>}
+                    {status && <ErrorMessageRegister/>}
                     <ErrorMessage name='first_name' className="error"  component='div' />
                     <Field 
                         className="register__input" 

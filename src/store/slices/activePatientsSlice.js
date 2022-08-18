@@ -2,15 +2,18 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import instance from '../../constans/instanceAxios';
 import { storageIdDoctor } from '../../constans/constans';
 
+// get patient list, get active patient
 export const getPatientsList = createAsyncThunk(
     'activePatients/getPatientsList',
     async  (_, {rejectWithValue, dispatch}) => {
         try {
             await instance(`api/patient?doctor_id=${storageIdDoctor}`)
                 .then(result => {
+                    console.log(result)
                     dispatch(setPatients(result.data.data));
                     instance(`api/patient/${result.data.data[0].id}?doctor_id=${storageIdDoctor}`,)
                         .then(res => {
+                            console.log(res)
                             dispatch(setActivePatients(res.data.data));
                         })
                 })
@@ -19,25 +22,53 @@ export const getPatientsList = createAsyncThunk(
         }
     }
 );
-export const updateList = createAsyncThunk(
-    'activePatients/updateList',
-    async  (_, {rejectWithValue, dispatch}) => {
+// get : toggle active patient 
+
+export const getActivePatient = createAsyncThunk(
+    'activePatients/getActivePatient',
+    async  (id, {rejectWithValue, dispatch}) => {
         try {
-            await instance(`api/patient?doctor_id=${storageIdDoctor}`)
-                .then(result => {
-                    dispatch(setPatients(result.data.data));
-                    instance(`api/patient/${result.data.data[result.data.data.length - 1].id}?doctor_id=${storageIdDoctor}`,)
-                        .then(res => {
-                            dispatch(setActivePatients(res.data.data));
-                        })
+            instance(`api/patient/${id}?doctor_id=${storageIdDoctor}`,)
+                .then(res => {
+                    dispatch(setActivePatients(res.data.data));
                 })
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);
+//  Register new patient, get patient list, get active patient
+export const RegAndUpdateList = createAsyncThunk(
+    'activePatients/RegAndUpdateList',
+    async  (body, {rejectWithValue, dispatch}) => {
+        try {
+            await instance.post(`api/patient`,body)
+                .then(e => {
+                        instance(`api/patient?doctor_id=${storageIdDoctor}`)
+                            .then(result => {
+                                dispatch(setPatients(result.data.data));
+                                instance(`api/patient/${result.data.data[result.data.data.length - 1].id}?doctor_id=${storageIdDoctor}`,)
+                                    .then(res => {
+                                        dispatch(setActivePatients(res.data.data));
+                                    })
+                            })
+                })
+           
         } catch (error) {
             return rejectWithValue(error.message);
         }
     }
 );
 
-const setError = (state, action) => {
+const setPending = (state) => {
+    state.submit = false;
+    state.status = true;
+    state.error = null;
+}
+const setFulfilled = (state) => {
+    state.status = false;
+}
+const setRejected = (state, action) => {
     state.status = true;
     state.error = action.payload;
 }
@@ -47,8 +78,9 @@ const activePatients = createSlice({
     initialState: {
         activePatient:[],
         patients:[],
-        status: true,
+        status: null,
         error: null,
+        submit:null,
     },
     reducers: {
         setActivePatients(state, action) {
@@ -57,29 +89,25 @@ const activePatients = createSlice({
         setPatients(state, action) {
             state.patients = action.payload;
         },
+        creatNewPatients(state, {payload}) {
+            state.patients = [...state.patients, payload];
+            state.activePatient = payload;
+        },
     },
     extraReducers: {
-        [getPatientsList.pending]: (state) => {
-            state.status = true;
-            state.error = null;
+        [getPatientsList.pending]: setPending,
+        [getPatientsList.fulfilled]: setFulfilled,
+        [getPatientsList.rejected]: setRejected,
+
+        [RegAndUpdateList.pending]: setPending,
+        [RegAndUpdateList.fulfilled]: setFulfilled,
+        [RegAndUpdateList.rejected]: (state, action) => {
+            state.error = action.payload;
+            state.submit = true;
         },
-        [getPatientsList.fulfilled]: (state) => {
-            state.status = false;
-            
-        },
-        [getPatientsList.rejected]: setError,
-        [updateList.pending]: (state) => {
-            state.status = true;
-            state.error = null;
-        },
-        [updateList.fulfilled]: (state) => {
-            state.status = false;
-            
-        },
-        [updateList.rejected]: setError,
     },
 });
 
-export const {setActivePatients,setPatients} = activePatients.actions;
+export const {setActivePatients,setPatients, creatNewPatients} = activePatients.actions;
 
 export default activePatients.reducer;

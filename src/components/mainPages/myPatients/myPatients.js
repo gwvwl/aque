@@ -22,7 +22,6 @@ const MyPatients = () => {
     useEffect( () => {
         if(!patients.length){
             dispatch(getPatientsList());
-            
         }
     },[]);
     

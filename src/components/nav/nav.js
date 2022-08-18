@@ -1,19 +1,16 @@
 
-import {NavLink} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import { setAdd} from '../../store/slices/addSlice';
+import { logAut } from '../../store/slices/userSlice';
+
 import img from './circle.png';
 import './nav.css';
-import useService from '../../useHook/service.js';
-import {useSelector} from 'react-redux';
-import {useDispatch} from 'react-redux';
-import { setAdd} from '../../store/slices/addSlice';
-import {useNavigate} from 'react-router-dom';
 
 const Nav = () => {
-        const navigate = useNavigate();
         const dispatch = useDispatch();
         const userName = useSelector(state => state.user.name);
 
-        const {formLogout} = useService();
     return(
         <div className="nav-wrapper" >
             <div className="nav">
@@ -42,7 +39,7 @@ const Nav = () => {
                         </div>
                         <div>
                                 <button  
-                                        onClick={() => {formLogout()}}
+                                        onClick={() => {dispatch(logAut())}}
                                         className='nav__action__link logout'>Logout</button>
                         </div>
                        

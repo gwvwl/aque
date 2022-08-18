@@ -1,8 +1,8 @@
 import { useState} from 'react';
 import {useSelector} from 'react-redux';
-import useService from '../../../../useHook/service';
 import Skeleton from '../../../skeleton/skeleton';
 import dropHeader from '../../../../img/dropUnHeader.png';
+import { baseURL } from '../../../../constans/constans';
 
 import '../myPatients.css';
 
@@ -13,7 +13,6 @@ const PatientsRight = () => {
     const OnUnDownHeader = dropOnHeader && <UnDownHeader promo = {patient}/> ;
     const patientVisit = useSelector(state => state.activePatients.activePatient.visits);
     const patientLabs = useSelector(state => state.activePatients.activePatient.labs);
-    const {__api} = useService();
 
     if(patient)  { 
         return(
@@ -21,7 +20,7 @@ const PatientsRight = () => {
             <div className={`patiens__wrapper__header ${dropOnHeader && 'active'}`}>
                 <div className='wrapper__drop'>
 
-                <img src={`${__api}${patient.patient_photo}`} alt = 'patient' className="patien__header__img"/>
+                <img src={`${baseURL}${patient.patient_photo}`} alt = 'patient' className="patien__header__img"/>
 
                     <div className="patien__header__promo">
                         <div className="patien__header__promo__drop">
