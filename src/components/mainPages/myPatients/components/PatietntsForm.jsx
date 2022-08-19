@@ -2,7 +2,7 @@
 import { Formik, Field, Form, ErrorMessage} from 'formik';
 // import * as Yup from 'yup';
 import {useDispatch, useSelector} from 'react-redux';
-import { setPatients, RegAndUpdateList} from '../../../../store/slices/activePatientsSlice';
+import { setPatients, regListActive} from '../../../../store/slices/activePatientsSlice';
 import '../myPatients.css';
 
 
@@ -38,7 +38,7 @@ const PatieentsForm = () => {
             // validationSchema = {Yup.object({
 
             //     })}
-            onSubmit = {(body, actions) => { dispatch(RegAndUpdateList(body)) ; actions.resetForm() }}
+            onSubmit = {(body, actions) => { dispatch(regListActive(body)) ; actions.resetForm() }}
             >
             <Form className='patiens__wrapper__form'>
                 {submit && error}

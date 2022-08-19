@@ -37,7 +37,7 @@ export const getActivePatient = createAsyncThunk(
     }
 );
 //  Register new patient, get patient list, get active patient
-export const RegAndUpdateList = createAsyncThunk(
+export const regListActive = createAsyncThunk(
     'activePatients/RegAndUpdateList',
     async  (body, {rejectWithValue, dispatch}) => {
         try {
@@ -98,9 +98,9 @@ const activePatients = createSlice({
         [getPatientsList.fulfilled]: setFulfilled,
         [getPatientsList.rejected]: setRejected,
 
-        [RegAndUpdateList.pending]: setPending,
-        [RegAndUpdateList.fulfilled]: setFulfilled,
-        [RegAndUpdateList.rejected]: (state, action) => {
+        [regListActive.pending]: setPending,
+        [regListActive.fulfilled]: setFulfilled,
+        [regListActive.rejected]: (state, action) => {
             state.error = action.payload;
             state.submit = true;
         },
