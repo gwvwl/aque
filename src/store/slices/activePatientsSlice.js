@@ -88,10 +88,6 @@ const activePatients = createSlice({
         setPatients(state, action) {
             state.patients = action.payload;
         },
-        creatNewPatients(state, {payload}) {
-            state.patients = [...state.patients, payload];
-            state.activePatient = payload;
-        },
     },
     extraReducers: {
         [getPatientsList.pending]: setPending,
@@ -107,6 +103,6 @@ const activePatients = createSlice({
     },
 });
 
-export const {setActivePatients,setPatients, creatNewPatients} = activePatients.actions;
+export const {setActivePatients,setPatients} = activePatients.actions;
 
 export default activePatients.reducer;
