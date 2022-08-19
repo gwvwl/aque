@@ -1,12 +1,12 @@
 
-import Nav from '../nav/nav';
-import Dashboard from './dashboard/dashboard';
-import MyPatients from './myPatients/myPatients';
-import Medication from './medication/medication';
-import Payments from './payments/payments';
-import OtherFeatures from './otherFeatures/otherFeatures';
-import Publish from './publish/publish';
-import History from './history/history';
+import Nav from '../nav/Nav';
+import Dashboard from './dashboard/Dashboard';
+import MyPatients from './myPatients/MyPatients';
+import Medication from './medication/Medication';
+import Payments from './payments/Payments';
+import OtherFeatures from './otherFeatures/OtherFeatures';
+import Publish from './publish/Publish';
+import History from './history/History';
 import Settings from './settings/Settings';
 
 import {Route, Routes} from 'react-router-dom';

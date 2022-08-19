@@ -5,7 +5,7 @@ import { signUp } from '../../store/slices/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import unbenannt from '../../img/Unbenannt.png';
 import logo from '../../img/Logo.png';
-import { ErrorMessageRegister } from '../../useHook/errorMessage';
+import { ErrorMessageRegister } from '../../useHook/ErrorMessage';
 import './register.css';
 
 const Register = () => {

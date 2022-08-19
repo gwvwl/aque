@@ -1,15 +1,13 @@
 
-import {Header} from '../../header/header';
+import HeaderSettings from './components/HeaderSettings';
 
 import './settings.css';
 
 const Settings = () => {
-    const {headerSettings} = Header();
-
-    const header = headerSettings();
+  
     return(
         <div className="mainPage__wrapper">
-            {header}
+            <HeaderSettings/>
             <div className='medication__wrapper__left'>
                 <div className="patients__list">
                     <div className='patients__card'>

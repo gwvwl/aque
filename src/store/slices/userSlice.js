@@ -8,7 +8,6 @@ export const signIn = createAsyncThunk(
         try {
             await instance.post(`api/login`, body)
                 .then(result => {
-                    console.log(result)
                     dispatch(setUser(result.data.data));
                 })
         } catch (error) {
@@ -32,11 +31,10 @@ export const signUp = createAsyncThunk(
 
 export const logAut = createAsyncThunk(
     'user/logAut',
-    async  (body, {rejectWithValue, dispatch}) => {
+    async  (_, {rejectWithValue, dispatch}) => {
         try {
             await instance.post(`api/logout`)
                 .then(result => {
-                    console.log(result)
                     dispatch(logaut());
                 })
         } catch (error) {

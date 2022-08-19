@@ -1,15 +1,13 @@
 
-import {Header} from '../../header/header';
+import HeaderHistory from './components/HeaderHistory';
 
 import './history.css';
 
 const History = () => {
-    const {headerHistory} = Header();
 
-    const header = headerHistory();
     return(
         <div className="mainPage__wrapper">
-            {header}
+            <HeaderHistory/>
             <div className='mainPage__left'>
                 <span className="mainPage__left__title">Actions performed</span>
 

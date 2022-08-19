@@ -1,10 +1,10 @@
 import { useEffect} from 'react';
 
-import {Header} from '../../header/header';
-import PatieentsForm from './components/patietntsForm';
-import PatientsRight from './components/mainPytients';
-import PatietsList from './components/patients-list';
-import Skeleton from '../../skeleton/skeleton';
+import HeaderPatients from './components/HeaderPatients';
+import PatieentsForm from './components/PatietntsForm';
+import PatientsRight from './components/MainPytients';
+import PatietsList from './components/PatientsList';
+import Skeleton from '../../skeleton/Skeleton';
 
 import {useDispatch, useSelector} from 'react-redux';
 import {getPatientsList} from '../../../store/slices/activePatientsSlice';
@@ -13,7 +13,6 @@ import './myPatients.css';
 
 const MyPatients = () => {
 
-    const {headerPatients} = Header();
     const dispatch = useDispatch();
     const addPat = useSelector((state) => state.add.patients);
     const {status} = useSelector(state => state.activePatients);
@@ -25,10 +24,9 @@ const MyPatients = () => {
         }
     },[]);
     
-    const header = headerPatients();
     return(
         <div className={`mainPage__wrapper  `} >
-            {header}
+            <HeaderPatients/>
 
             {status ? <Skeleton/> : <PatietsList/>}
 

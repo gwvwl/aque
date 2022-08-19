@@ -1,19 +1,14 @@
 import {useState} from 'react';
-import {Header} from '../../header/header';
-
+import HeaderDashbord from './components/HeaderDashbord';
 import {NavLink} from 'react-router-dom';
 import './dashboard.css';
 
 const Dashboard = () => {
-
     const [tab, setTab] = useState(false);
    
-    const {headerDashbord} = Header();
-
-    const header = headerDashbord();
     return(
         <div className="mainPage__wrapper">
-            {header}
+            <HeaderDashbord/>
             <div className='mainPage__right main__one'>
                 <div className="mainPage__right__tabs">
                     <div className="mainPage__right__tabs__left">

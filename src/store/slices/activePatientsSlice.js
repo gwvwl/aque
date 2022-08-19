@@ -13,7 +13,6 @@ export const getPatientsList = createAsyncThunk(
                     dispatch(setPatients(result.data.data));
                     instance(`api/patient/${result.data.data[0].id}?doctor_id=${storageIdDoctor}`,)
                         .then(res => {
-                            console.log(res)
                             dispatch(setActivePatients(res.data.data));
                         })
                 })

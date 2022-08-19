@@ -1,6 +1,6 @@
 import { useState} from 'react';
 import {useSelector} from 'react-redux';
-import Skeleton from '../../../skeleton/skeleton';
+import Skeleton from '../../../skeleton/Skeleton';
 import dropHeader from '../../../../img/dropUnHeader.png';
 import { baseURL } from '../../../../constans/constans';
 
