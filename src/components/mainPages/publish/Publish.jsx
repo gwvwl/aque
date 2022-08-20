@@ -1,17 +1,14 @@
-
-import HeaderPublish from './components/HeaderPublish';
-import PublishMain from './components/PublishMain';
-import './publish.css';
+import HeaderPublish from './components/HeaderPublish'
+import PublishMain from './components/PublishMain'
+import './publish.css'
 
 const Publish = () => {
-    
-    return(
+    return (
         <div className="mainPage__wrapper">
-            <HeaderPublish/>
-            <PublishMain/>
+            <HeaderPublish />
+            <PublishMain />
         </div>
-        
     )
 }
 
-export default Publish;
+export default Publish

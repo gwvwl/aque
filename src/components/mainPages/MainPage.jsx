@@ -1,4 +1,3 @@
-
 import Nav from '../nav/Nav';
 import Dashboard from './dashboard/Dashboard';
 import MyPatients from './myPatients/MyPatients';
@@ -9,15 +8,14 @@ import Publish from './publish/Publish';
 import History from './history/History';
 import Settings from './settings/Settings';
 
-import {Route, Routes} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import './mainPage.css';
 
 const MainPage = () => {
-    
     return (
-        <div className="main-wrapper ">
-            <Nav/>
+        <div className='main-wrapper '>
+            <Nav />
             <Routes>
                 <Route path='dashboard' element={<Dashboard />} />
                 <Route path='my-patients' element={<MyPatients />} />
@@ -29,7 +27,7 @@ const MainPage = () => {
                 <Route path='settings' element={<Settings />} />
             </Routes>
         </div>
-    )
-}
+    );
+};
 
 export default MainPage;
